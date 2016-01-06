@@ -3,11 +3,11 @@
 
 (def o s/optional-key)
 
-(def support-types [:stream :base64 :uri :text :fn :file])
+(def support-types (s/enum :stream :base64 :uri :text :fn :file))
 
 (def BookResource
   {:src s/Any
-   :type (s/enum support-types)
+   :type support-types
    :href s/Str})
 
 (def BookAuthor
@@ -15,10 +15,10 @@
    :last-name s/Str
    (o :role) s/Str})
 
-(def identifier-schemes [:ISBN :UUID :URL :URI])
+(def identifier-schemes (s/enum :ISBN :UUID :URL :URI))
 
 (def BookIdentifier
-  {:scheme (s/enum identifier-schemes) 
+  {:scheme identifier-schemes
    :value s/Str})
 
 (def BookDate
@@ -26,13 +26,12 @@
    (o :event) s/Str})
 
 (def BookMeta
-  {:title            s/Str
-   :authors           [BookAuthor]
+  {:titles           [s/Str]
+   :authors          [BookAuthor]
    (o :contributors) [BookAuthor]
    (o :language)     s/Str
    (o :dates)        [BookDate]
    (o :rights)       [s/Str]
-   (o :titles)       [s/Str]
    (o :identifiers)  [BookIdentifier]
    (o :subjects)     [s/Str]
    (o :types)        [s/Str]
@@ -44,7 +43,8 @@
   (merge BookResource
     {:title s/Str
      (o :resources) [BookResource]
-     (o :sections) [BookResource]}))
+     (o :sections) [s/Any]}))
+;FIXME recursive definition don't work
 
 (def Book
   {:meta BookMeta

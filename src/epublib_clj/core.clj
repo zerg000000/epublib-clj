@@ -18,7 +18,7 @@
       (.setRole author role))
     author))
 
-(s/defn new-resource [{:keys [#^bytes src ^String href]} :- r/BookResource]
+(s/defn new-resource [{:keys [#^bytes src ^String href]}]
   (Resource. src href))
 
 (s/defn new-date [{:keys [value event]} :- r/BookDate]
@@ -63,7 +63,7 @@
       (:publishers model)))
   metadata)
 
-(s/defn set-resources! [^Book book model :- r/BookResource]
+(s/defn set-resources! [^Book book model :- (s/maybe [r/BookResource])]
   (doall
     (map 
       (fn [resource]

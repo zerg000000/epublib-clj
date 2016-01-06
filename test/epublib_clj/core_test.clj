@@ -1,8 +1,11 @@
 (ns epublib-clj.core-test
   (:require [clojure.test :refer :all]
             [clojure.java.io :as io]
+            [schema.test :as s]
             [epublib-clj.core :refer :all]
             [epublib-clj.resource :refer :all]))
+
+(use-fixtures :once s/validate-schemas)
 
 (def book-fixture {
   :meta {:titles ["A Book"]
