@@ -9,14 +9,14 @@
             {:value "2000-01-01" :event "modification"}] ;yyyy-MM-dd
     :rights ["no right reversed"]
     :identifiers [{:scheme :ISBN :value "122312-123123213"}]
-    :subjects ["I don't know when to use"]
+    :subjects ["tag" "other-tag" "tag2"]
     :types ["comedy"]
     :descriptions ["wow wow wow"]
     :publishers ["self publisher"]
-    :attributes {"tag" "any string should work"}
+    :attributes {"mywords" "any string should work"} ; not yet implemented
   }
   :cover-image {:href "cover.png" :src "doc/example/cover.png" :type :file}
-  :sections [
+  :sections [ ; can be nested to 255 level
     {:title "The Prologue" :href "prologue.html" :src "doc/example/prologue.html" :type :file}
     {:title "Chapter 1: The Burning Ash" :href "chap1.html" :src "doc/example/chap1.html" :type :file
      :resources [

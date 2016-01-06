@@ -1,6 +1,7 @@
 # epublib-clj
 
 [![Build Status](https://travis-ci.org/zerg000000/epublib-clj.svg)](https://travis-ci.org/zerg000000/epublib-clj)
+[![Dependency Status](https://www.versioneye.com/user/projects/568d04ec9c1b980038000004/badge.svg?style=flat)](https://www.versioneye.com/user/projects/568d04ec9c1b980038000004)
 
 A Clojure library which wrap the epublib to convert clojure map to epub.
 
