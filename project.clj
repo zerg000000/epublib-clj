@@ -1,0 +1,11 @@
+(defproject epublib-clj "0.1.0-SNAPSHOT"
+  :description "Clojure wrapper for epublib java library"
+  :url "https://github.com/zerg000000/epublib-clj"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/core.async "0.2.374"]
+                 [prismatic/schema "1.0.4"]
+                 [http-kit "2.1.18"]
+                 [nl.siegmann.epublib/epublib-core "3.1"]]
+  :repositories [["pageturner" "http://repo.pageturner-reader.org/"]])
