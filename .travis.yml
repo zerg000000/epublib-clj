@@ -1,4 +1,4 @@
-lein: lein2
+language: clojure
 script: lein2 do clean, javac, test
 jdk:
   - openjdk7
