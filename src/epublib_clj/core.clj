@@ -87,6 +87,7 @@
       model)))
 
 (s/defn to-book [model :- r/Book]
+  "convert a clojure map to epublib Book presentation"
   (let [book (Book.)
         metadata (.getMetadata book)]
     (set-metadata! metadata (:meta model))

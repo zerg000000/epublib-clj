@@ -6,6 +6,7 @@
             [epublib-clj.model :as r]))
 
 (defn async-get [url result res]
+  "fetch url to async channel"
   (http/get url {:as :byte-array} 
     #(async/go (async/>! result (assoc res :src (:body %))))))
 
@@ -42,10 +43,10 @@
 
 (defmethod as-bytes :default [res ch] (async/go (async/>! ch res)))
 
-(defn add-indexed-cursor [items cursor]
+(defn- add-indexed-cursor [items cursor]
   (map-indexed #(assoc %2 :cursor (concat cursor [%1])) items))
 
-(defn resources-from-sections [model cur]
+(defn- resources-from-sections [model cur]
   (let [res-cur (concat cur [:resources])
         sec-cur (concat cur [:sections])]
     (flatten (concat []
@@ -57,6 +58,8 @@
           (:sections model))))))))
 
 (s/defn fetch-resources [model :- r/Book]
+  "fetching resources defined in clojure map convert them to byte-array
+   and replace :src"
   (let [new-book (atom model)
         fetch-ch (async/chan 200)
         section-resources (concat
