@@ -1,0 +1,35 @@
+{
+  :meta {
+    :titles ["The Hero from Ash" "Red Ash"]
+    :authors [{:first-name "Zerg" :last-name "the linging"}]
+    :language "en" ; default en
+    :contributors [{:first-name "No one" :last-name "No one" :role "act"}]
+    :dates [{:value "2046-12-23" :event "publication"}
+            {:value "2017-08-11" :event "creation"}
+            {:value "2000-01-01" :event "modification"}] ;yyyy-MM-dd
+    :rights ["no right reversed"]
+    :identifiers [{:scheme :ISBN :value "122312-123123213"}]
+    :subjects ["I don't know when to use"]
+    :types ["comedy"]
+    :descriptions ["wow wow wow"]
+    :publishers ["self publisher"]
+    :attributes {"tag" "any string should work"}
+  }
+  :cover-image {:href "cover.png" :src "doc/example/cover.png" :type :file}
+  :sections [
+    {:title "The Prologue" :href "prologue.html" :src "doc/example/prologue.html" :type :file}
+    {:title "Chapter 1: The Burning Ash" :href "chap1.html" :src "doc/example/chap1.html" :type :file
+     :resources [
+      {:href "chap1cover.png" :src "doc/example/chap1cover.png" :type :file}
+     ]
+     :sections [
+      {:title "Chapter 1.1: Darkness in Ash" :href "chap1s1.html" :src "doc/example/chap1s1.html" :type :file}
+     ]}
+    {:title "End" :href "end.html" :src "doc/example/end.html" :type :file
+     :resources [
+       {:href "author1.png" :src "doc/example/author1.png" :type :file}
+       {:href "author2.png" :src "doc/example/author1.png" :type :file}
+       {:href "author3.png" :src "doc/example/author1.png" :type :file}
+     ]}
+  ]
+}
