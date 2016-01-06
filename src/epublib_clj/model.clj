@@ -3,11 +3,10 @@
 
 (def o s/optional-key)
 
-(def support-types (s/enum :stream :base64 :uri :text :fn :file))
-
+; default only support for :stream :text :fn :file
 (def BookResource
   {:src s/Any
-   :type support-types
+   :type s/Keyword
    :href s/Str})
 
 (def BookAuthor

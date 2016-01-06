@@ -1,14 +1,8 @@
 (ns epublib-clj.resource
   (:require [schema.core :as s]
-            [org.httpkit.client :as http]
             [clojure.core.async :as async]
             [clojure.java.io :as io]
             [epublib-clj.model :as r]))
-
-(defn async-get [url result res]
-  "fetch url to async channel"
-  (http/get url {:as :byte-array} 
-    #(async/go (async/>! result (assoc res :src (:body %))))))
 
 (defn slurp-bytes
   "Slurp the bytes from a slurpable thing"
@@ -20,11 +14,6 @@
 (defmulti as-bytes (fn [res _] (:type res)))
 ;FIXME
 (defmethod as-bytes :stream [res ch] (async/go (async/>! ch res)))
-;FIXME
-(defmethod as-bytes :base64 [res ch] (async/go (async/>! ch res)))
-
-(defmethod as-bytes :uri [res ch]
-  (async-get (:src res) ch res))
 
 (defmethod as-bytes :text [res ch] 
   (async/thread 

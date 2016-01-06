@@ -22,7 +22,7 @@
          :language "zh_TW"}
   :cover-image {:src "https://realworldocaml.org/media/img/coversmall.png"
                 :href "cover.png"
-                :type :uri}
+                :type :text}
   :sections [
     {:title "Chapter One" :type :text :src "Bye World" :href "index.html"
      :resources [{:href "index3.png" :type :text :src "FHFHF"}]}

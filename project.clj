@@ -6,6 +6,5 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/core.async "0.2.374"]
                  [prismatic/schema "1.0.4"]
-                 [http-kit "2.1.19"]
                  [nl.siegmann.epublib/epublib-core "3.1"]]
   :repositories [["pageturner" "http://repo.pageturner-reader.org/"]])
