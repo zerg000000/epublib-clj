@@ -41,7 +41,7 @@ An simple example
 (-> data fetch-resources to-book (write "my.epub"))
 ```
 
-An complete example 
+An complete example [full.book.example.edn](full.book.example.edn) which includes all the possible options.
 
 ```{clojure}
 {
@@ -74,6 +74,8 @@ An complete example
   ]
 }
 ```
+
+A Full working example
 
 ## Section / Resource / Cover Image
 

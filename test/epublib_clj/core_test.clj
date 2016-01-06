@@ -38,4 +38,12 @@
     (write (to-book book-fixture) "target/abc.epub")
     (let [book (fetch-resources book-file-fixture)]
       (write (to-book book) "target/edf.epub"))
+    (is (= 1 1)))
+  (testing "full test load from files"
+    (-> (load-string (slurp "full.book.example.edn"))
+        fetch-resources
+        to-book
+        (write "target/full_book.epub"))
     (is (= 1 1))))
+
+

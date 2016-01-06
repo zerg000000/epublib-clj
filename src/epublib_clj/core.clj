@@ -26,8 +26,8 @@
 
 (s/defn new-identifier
   ([] (Identifier.))
-  ([{:keys [^String scheme ^String value]} :- r/BookIdentifier]
-    (Identifier. scheme value)))
+  ([{:keys [ scheme ^String value]} :- r/BookIdentifier]
+    (Identifier. (str scheme) value)))
 
 (s/defn set-metadata! [metadata model :- r/BookMeta]
   (if (:titles model)
@@ -47,7 +47,7 @@
     (.setRights metadata 
       (:rights model)))
   (if (:identifiers model)
-    (.setIdentifierss metadata 
+    (.setIdentifiers metadata 
       (map new-identifier (:identifiers model))))
   (if (:subjects model)
     (.setSubjects metadata 
