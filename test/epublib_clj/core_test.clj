@@ -35,6 +35,7 @@
 
 (deftest a-test
   (testing "generate book from in-mem"
+    (write (to-book book-fixture) (io/output-stream "target/123.epub"))
     (write (to-book book-fixture) "target/abc.epub")
     (let [book (fetch-resources book-file-fixture)]
       (write (to-book book) "target/edf.epub"))
