@@ -29,39 +29,27 @@
   ([{:keys [ scheme ^String value]} :- r/BookIdentifier]
     (Identifier. (str scheme) value)))
 
+(def meta-ops
+ {:titles [ #(.setTitles %1 %2) :list]
+  :authors [ #(.setAuthors %1 %2) :list new-author]
+  :contributors [ #(.setContributors %1 %2) :list new-author]
+  :language [ #(.setLanguage %1 %2) :single]
+  :dates [ #(.setDates %1 %2) :list new-date]
+  :rights [ #(.setRights %1 %2) :list]
+  :identifiers [ #(.setIdentifiers %1 %2) :list new-identifier]
+  :subjects [ #(.setSubjects %1 %2) :list]
+  :types [ #(.setTypes %1 %2) :list]
+  :descriptions [ #(.setDescriptions %1 %2) :list]
+  :publishers [ #(.setPublishers %1 %2) :list]})
+
 (s/defn set-metadata! [metadata model :- r/BookMeta]
-  (if (:titles model)
-    (.setTitles metadata (:titles model)))
-  (if (:authors model)
-    (.setAuthors metadata
-      (map new-author (:authors model))))
-  (if (:contributors model)
-    (.setContributors metadata 
-      (map new-author (:contributors model))))
-  (if (:language model)
-    (.setLanguage metadata (:language model)))
-  (if (:dates model)
-    (.setDates metadata 
-      (map new-date (:dates model))))
-  (if (:rights model)
-    (.setRights metadata 
-      (:rights model)))
-  (if (:identifiers model)
-    (.setIdentifiers metadata 
-      (map new-identifier (:identifiers model))))
-  (if (:subjects model)
-    (.setSubjects metadata 
-      (:subjects model)))
-  (if (:types model)
-    (.setTypes metadata 
-      (:types model)))
-  (if (:descriptions model)
-    (.setDescriptions metadata 
-      (:descriptions model)))
-  (if (:publishers model)
-    (.setPublishers metadata 
-      (:publishers model)))
-  metadata)
+  (doall
+  (for [[cursor [set-fn is-list? trans-fn]] meta-ops]
+    (let [value (cursor model)
+          trans (or trans-fn identity)]
+      (if (= is-list? :list)
+        (set-fn metadata (map trans value))
+        (set-fn metadata (trans value)))))))
 
 (s/defn set-resources! [^Book book model :- (s/maybe [r/BookResource])]
   (doall
