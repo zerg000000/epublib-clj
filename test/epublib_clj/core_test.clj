@@ -18,7 +18,7 @@
 (def book-file-fixture {
   :meta {:titles ["B Book"]
          :authors [{:first-name "Tom" :last-name "Lee"}]
-         :dates [{:value "2015-01-01" :event "publication"}]
+         :dates [{:value "2015-01-01" :event :publication}]
          :language "zh_TW"}
   :cover-image {:src "https://realworldocaml.org/media/img/coversmall.png"
                 :href "cover.png"

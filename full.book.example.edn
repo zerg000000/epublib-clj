@@ -4,9 +4,9 @@
     :authors [{:first-name "Zerg" :last-name "the linging"}]
     :language "en" ; default en
     :contributors [{:first-name "No one" :last-name "No one" :role "act"}]
-    :dates [{:value "2046-12-23" :event "publication"}
-            {:value "2017-08-11" :event "creation"}
-            {:value "2000-01-01" :event "modification"}] ;yyyy-MM-dd
+    :dates [{:value "2046-12-23" :event :publication}
+            {:value "2017-08-11" :event :creation}
+            {:value "2000-01-01" :event :modification}] ;yyyy-MM-dd
     :rights ["no right reversed"]
     :identifiers [{:scheme :ISBN :value "122312-123123213"}]
     :subjects ["tag" "other-tag" "tag2"]

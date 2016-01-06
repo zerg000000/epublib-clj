@@ -20,9 +20,11 @@
   {:scheme identifier-schemes
    :value s/Str})
 
+(def event-types (s/enum :publication :creation :modification))
+
 (def BookDate
   {:value s/Str
-   (o :event) s/Str})
+   (o :event) event-types})
 
 (def BookMeta
   {:titles           [s/Str]

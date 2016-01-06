@@ -22,7 +22,7 @@
   (Resource. src href))
 
 (s/defn new-date [{:keys [value event]} :- r/BookDate]
-  (Date. value event))
+  (Date. value (str event)))
 
 (s/defn new-identifier
   ([] (Identifier.))
