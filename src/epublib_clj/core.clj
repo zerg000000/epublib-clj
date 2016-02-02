@@ -26,8 +26,8 @@
 
 (s/defn new-identifier
   ([] (Identifier.))
-  ([{:keys [ scheme ^String value]} :- r/BookIdentifier]
-    (Identifier. (str scheme) value)))
+  ([{:keys [^Keyword scheme ^String value]} :- r/BookIdentifier]
+    (Identifier. (name scheme) value)))
 
 (def meta-ops
  {:titles [ #(.setTitles %1 %2) :list]
@@ -40,7 +40,8 @@
   :subjects [ #(.setSubjects %1 %2) :list]
   :types [ #(.setTypes %1 %2) :list]
   :descriptions [ #(.setDescriptions %1 %2) :list]
-  :publishers [ #(.setPublishers %1 %2) :list]})
+  :publishers [ #(.setPublishers %1 %2) :list]
+  :attributes [ #(.setMetaAttributes %1 %2) :single]})
 
 (s/defn set-metadata! [metadata model :- r/BookMeta]
   (doall

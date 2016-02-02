@@ -13,7 +13,7 @@
     :types ["comedy"]
     :descriptions ["wow wow wow"]
     :publishers ["self publisher"]
-    :attributes {"mywords" "any string should work"} ; not yet implemented
+    :attributes {"mywords" "any string should work"}
   }
   :cover-image {:href "cover.png" :src "doc/example/cover.png" :type :file}
   :sections [ ; can be nested to 255 level

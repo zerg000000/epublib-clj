@@ -44,8 +44,7 @@
   (merge BookResource
     {:title s/Str
      (o :resources) [BookResource]
-     (o :sections) [s/Any]}))
-;FIXME recursive definition don't work
+     (o :sections) [(s/recursive #'BookSection)]}))
 
 (def Book
   {:meta BookMeta
