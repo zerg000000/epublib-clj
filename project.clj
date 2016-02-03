@@ -1,4 +1,4 @@
-(defproject epublib-clj "0.1.0"
+(defproject epublib-clj "0.1.0-SNAPSHOT"
   :description "Clojure wrapper for epublib java library"
   :url "https://github.com/zerg000000/epublib-clj"
   :license {:name "Eclipse Public License"
