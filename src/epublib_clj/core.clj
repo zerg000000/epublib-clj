@@ -41,7 +41,8 @@
   :types [ #(.setTypes %1 %2) :list]
   :descriptions [ #(.setDescriptions %1 %2) :list]
   :publishers [ #(.setPublishers %1 %2) :list]
-  :attributes [ #(.setMetaAttributes %1 %2) :single]})
+  ;:attributes [ #(.setMetaAttributes %1 %2) :single] ; the repo don't have the latest version
+  })
 
 (s/defn set-metadata! [metadata model :- r/BookMeta]
   (doall
